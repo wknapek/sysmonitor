@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1502805614 source:/home/dom/c++/sysmonitor/main.cpp
+	<iostream>
+	"cpuInfoCollector.h"
+	"RAMCollector.h"
+	<unistd.h>
+
+1502798226 source:/home/dom/c++/sysmonitor/src/cpuInfoCollector.cpp
+	"cpuInfoCollector.h"
+	<iostream>
+	<fstream>
+	<numeric>
+
+1502798202 /home/dom/c++/sysmonitor/include/cpuInfoCollector.h
+	"stdlib.h"
+	"string.h"
+	<stdio.h>
+	<vector>
+
+1502812029 source:/home/dom/c++/sysmonitor/src/RAMCollector.cpp
+	"RAMCollector.h"
+	"sys/types.h"
+	<iostream>
+	<stdio.h>
+
+1502805410 /home/dom/c++/sysmonitor/include/RAMCollector.h
+	<stdint.h>
+	"sys/sysinfo.h"
+
