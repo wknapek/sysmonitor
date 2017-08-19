@@ -1,11 +1,12 @@
 # depslib dependency file v1.0
-1502805614 source:/home/dom/c++/sysmonitor/main.cpp
+1503168834 source:/home/dom/c++/sysmonitor/main.cpp
 	<iostream>
 	"cpuInfoCollector.h"
 	"RAMCollector.h"
+	"netStat.h"
 	<unistd.h>
 
-1502798226 source:/home/dom/c++/sysmonitor/src/cpuInfoCollector.cpp
+1503160699 source:/home/dom/c++/sysmonitor/src/cpuInfoCollector.cpp
 	"cpuInfoCollector.h"
 	<iostream>
 	<fstream>
@@ -17,7 +18,7 @@
 	<stdio.h>
 	<vector>
 
-1502812029 source:/home/dom/c++/sysmonitor/src/RAMCollector.cpp
+1503160121 source:/home/dom/c++/sysmonitor/src/RAMCollector.cpp
 	"RAMCollector.h"
 	"sys/types.h"
 	<iostream>
@@ -26,4 +27,18 @@
 1502805410 /home/dom/c++/sysmonitor/include/RAMCollector.h
 	<stdint.h>
 	"sys/sysinfo.h"
+
+1503168565 /home/dom/c++/sysmonitor/include/netStat.h
+	<vector>
+	<stdio.h>
+	<string>
+	<set>
+
+1503168404 source:/home/dom/c++/sysmonitor/src/netStat.cpp
+	"netStat.h"
+	"iostream"
+	<fstream>
+	<limits>
+	<sys/types.h>
+	<ifaddrs.h>
 

@@ -36,9 +36,11 @@
 		</Compiler>
 		<Unit filename="include/RAMCollector.h" />
 		<Unit filename="include/cpuInfoCollector.h" />
+		<Unit filename="include/netStat.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/RAMCollector.cpp" />
 		<Unit filename="src/cpuInfoCollector.cpp" />
+		<Unit filename="src/netStat.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

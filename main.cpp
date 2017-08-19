@@ -1,6 +1,7 @@
 #include <iostream>
 #include "cpuInfoCollector.h"
 #include "RAMCollector.h"
+#include "netStat.h"
 #include <unistd.h>
 
 using namespace std;
@@ -9,6 +10,7 @@ int main()
 {
     cpuInfoCollector cpu;
     RAMCollector ram;
+    netStat net;
 
     //while(1)
     {
