@@ -3,7 +3,7 @@
 #include <vector>
 #include <stdio.h>
 #include <string>
-#include <set>
+#include <map>
 
 
 class netStat
@@ -18,7 +18,18 @@ class netStat
     private:
     std::vector<size_t> net_stats();
     void get_interfaces();
-    std::set<std::string> interfaces;
+    class networkInterFace
+    {
+    public:
+        networkInterFace(int64_t rx,int64_t tx)
+        {
+            rx_bytes = rx;
+            tx_bytes = tx;
+        }
+        int64_t rx_bytes;
+        int64_t tx_bytes;
+    };
+    std::map<std::string,networkInterFace> interfaces;
 };
 
 #endif // NETSTAT_H

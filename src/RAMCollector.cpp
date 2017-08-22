@@ -16,7 +16,10 @@ RAMCollector::~RAMCollector()
 
 int64_t RAMCollector::Get_usage()
 {
-    sysinfo(&m_info);
+    if(sysinfo(&m_info)!=0)
+    {
+        return 0;
+    }
     return m_info.totalram - m_info.freeram;
 }
 

@@ -21,7 +21,6 @@ std::vector<size_t> netStat::net_stats()
 {
     std::ifstream net_stat;
     net_stat.open("/proc/net/dev");
-    //net_stat.ignore(2,'|');
     std::vector<size_t> values;
     for (size_t value; net_stat >> value; values.push_back(value));
     return values;
@@ -33,20 +32,26 @@ void netStat::get_interfaces()
     getifaddrs(&ifaddr);
     for (ifa = ifaddr; ifa != NULL; ifa = ifa->ifa_next)
     {
-        interfaces.insert(ifa->ifa_name);
+        interfaces.insert(std::map<std::string,networkInterFace>::value_type(ifa->ifa_name,networkInterFace(0,0)));
     }
 }
 
 void netStat::printInterfaces()
 {
-    for(auto it = interfaces.begin();it!=interfaces.end();it++)
+    for(auto it = interfaces.begin(); it != interfaces.end(); it++)
     {
+
         std::ifstream net_stat_rx;
         std::ifstream net_stat_tx;
-        net_stat_rx.open("/sys/class/net/"+*it+"/statistics/rx_bytes");
-        std::cout<<net_stat_rx.rdbuf()<<std::endl;
-        net_stat_tx.open("/sys/class/net/"+*it+"/statistics/tx_bytes");
-        std::cout<<net_stat_tx.rdbuf()<<std::endl;
+        std::cout<<"Network Interface:         "<<it->first<<std::endl;
+        net_stat_rx.open("/sys/class/net/"+ it->first+ "/statistics/rx_bytes");
+        net_stat_rx >> it->second.rx_bytes;
+        std::cout<< "                               RX bytes: " <<it->second.rx_bytes << std::endl;
+        net_stat_tx.open("/sys/class/net/"+ it->first +"/statistics/tx_bytes");
+        net_stat_tx >> it->second.tx_bytes;
+        std::cout << "                               TX bytes: " << it->second.tx_bytes <<std::endl;
     }
 
 }
+
+

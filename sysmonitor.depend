@@ -42,3 +42,57 @@
 	<sys/types.h>
 	<ifaddrs.h>
 
+1503418217 source:/mnt/linux/c++/sysmonitor/main.cpp
+	<iostream>
+	"cpuInfoCollector.h"
+	"RAMCollector.h"
+	"netStat.h"
+	<unistd.h>
+	"systemInfoCollector.h"
+
+1503352687 /mnt/linux/c++/sysmonitor/include/cpuInfoCollector.h
+	"stdlib.h"
+	"string.h"
+	<stdio.h>
+	<vector>
+
+1503352687 /mnt/linux/c++/sysmonitor/include/RAMCollector.h
+	<stdint.h>
+	"sys/sysinfo.h"
+
+1503416382 /mnt/linux/c++/sysmonitor/include/netStat.h
+	<vector>
+	<stdio.h>
+	<string>
+	<map>
+
+1503414076 source:/mnt/linux/c++/sysmonitor/src/cpuInfoCollector.cpp
+	"cpuInfoCollector.h"
+	<iostream>
+	<fstream>
+	<numeric>
+
+1503418361 source:/mnt/linux/c++/sysmonitor/src/netStat.cpp
+	"netStat.h"
+	"iostream"
+	<fstream>
+	<limits>
+	<sys/types.h>
+	<ifaddrs.h>
+
+1503410346 source:/mnt/linux/c++/sysmonitor/src/RAMCollector.cpp
+	"RAMCollector.h"
+	"sys/types.h"
+	<iostream>
+	<stdio.h>
+
+1503418217 source:/mnt/linux/c++/sysmonitor/src/systemInfoCollector.cpp
+	"systemInfoCollector.h"
+	<sys/sysinfo.h>
+	<iostream>
+
+1503412400 /mnt/linux/c++/sysmonitor/include/systemInfoCollector.h
+	"cpuInfoCollector.h"
+	"RAMCollector.h"
+	"netStat.h"
+
