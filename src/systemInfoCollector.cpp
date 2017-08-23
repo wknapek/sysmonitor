@@ -11,6 +11,11 @@ systemInfoCollector::~systemInfoCollector()
     //dtor
 }
 
+systemInfoCollector::systemInfoCollector(std::string interface) : net(interface)
+{
+
+}
+
 void systemInfoCollector::getSystemInfo()
 {
     struct sysinfo sys_info;

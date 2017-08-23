@@ -9,7 +9,11 @@ netStat::netStat()
 {
     //ctor
     get_interfaces();
-    printInterfaces();
+}
+
+netStat::netStat(std::string interface)
+{
+    interfaces.insert(std::map<std::string,networkInterFace>::value_type(interface,networkInterFace(0,0)));
 }
 
 netStat::~netStat()

@@ -1,28 +1,67 @@
 #include <iostream>
-#include "cpuInfoCollector.h"
-#include "RAMCollector.h"
-#include "netStat.h"
-#include <unistd.h>
 #include "systemInfoCollector.h"
+#include <memory>
+#include <unistd.h>
+#include <stdlib.h>
+#include <chrono>
+#include <ctime>
 
 using namespace std;
 
-int main()
+int main(int argc, char* argv[])
 {
-    cpuInfoCollector cpu;
-    RAMCollector ram;
-    netStat net;
-    systemInfoCollector sys;
-
-    while(1)
+    int interval   = 0;
+    if (argc == 4)
     {
-        //cout << ram.Get_usage() <<endl;
-        //cout << ram.Get_free() <<endl;
-        //cout << ram.Get_percent_Free() <<endl;
-        //cout << ram.Get_Percent_Usage() <<endl;
-        sys.getSystemInfo();
-        sleep(4);
+        interval   = atoi(argv[2]);
+        systemInfoCollector sys(argv[3]);
+        auto start = chrono::high_resolution_clock::now();
+        auto stop = start + chrono::seconds(atoi(argv[1]));
+        while(start>stop)
+        {
+            sys.getSystemInfo();
+            sleep(interval);
+        }
     }
-    cout << "Hello world!" << endl;
+    else if (argc == 3)
+    {
+            interval   = atoi(argv[2]);
+            systemInfoCollector sys;
+            auto start = chrono::high_resolution_clock::now();
+            auto stop = start + chrono::seconds(atoi(argv[1]));
+            while(start>stop)
+            {
+                sys.getSystemInfo();
+                sleep(interval);
+            }
+            cout<<"application usage sysomonior 100(time period in seconds) 10(time interval in seconds) lo(network interface)"<<endl;
+    }
+    else if (argc == 2)
+    {
+            interval   = 1;
+            systemInfoCollector sys;
+            auto start = chrono::high_resolution_clock::now();
+            auto stop = start + chrono::seconds(atoi(argv[1]));
+            while(start>stop)
+            {
+                sys.getSystemInfo();
+                sleep(interval);
+            }
+            cout<<"application usage sysomonior 100(time period in seconds) 10(time interval in seconds) lo(network interface)"<<endl;
+    }
+    else
+    {
+            interval   = 1;
+            systemInfoCollector sys;
+            auto start = chrono::high_resolution_clock::now();
+            auto stop = start + chrono::seconds(10);
+            while(start<stop)
+            {
+                sys.getSystemInfo();
+                sleep(interval);
+                start = chrono::high_resolution_clock::now();
+            }
+            cout<<"application usage sysomonior 100(time period in seconds) 10(time interval in seconds) lo(network interface)"<<endl;
+    }
     return 0;
 }

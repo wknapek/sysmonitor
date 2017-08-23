@@ -9,6 +9,7 @@ class systemInfoCollector
 {
     public:
         systemInfoCollector();
+        systemInfoCollector(std::string inteface);
         virtual ~systemInfoCollector();
         void getSystemInfo();
     private:

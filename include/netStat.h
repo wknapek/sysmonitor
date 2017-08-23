@@ -10,6 +10,7 @@ class netStat
 {
     public:
         netStat();
+        netStat(std::string interface);
         virtual ~netStat();
         void printInterfaces();
 
