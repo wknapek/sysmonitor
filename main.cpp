@@ -17,10 +17,11 @@ int main(int argc, char* argv[])
         systemInfoCollector sys(argv[3]);
         auto start = chrono::high_resolution_clock::now();
         auto stop = start + chrono::seconds(atoi(argv[1]));
-        while(start>stop)
+        while(start<stop)
         {
             sys.getSystemInfo();
             sleep(interval);
+            start = chrono::high_resolution_clock::now();
         }
     }
     else if (argc == 3)
@@ -29,10 +30,11 @@ int main(int argc, char* argv[])
             systemInfoCollector sys;
             auto start = chrono::high_resolution_clock::now();
             auto stop = start + chrono::seconds(atoi(argv[1]));
-            while(start>stop)
+            while(start<stop)
             {
                 sys.getSystemInfo();
                 sleep(interval);
+                start = chrono::high_resolution_clock::now();
             }
             cout<<"application usage sysomonior 100(time period in seconds) 10(time interval in seconds) lo(network interface)"<<endl;
     }
@@ -42,10 +44,11 @@ int main(int argc, char* argv[])
             systemInfoCollector sys;
             auto start = chrono::high_resolution_clock::now();
             auto stop = start + chrono::seconds(atoi(argv[1]));
-            while(start>stop)
+            while(start<stop)
             {
                 sys.getSystemInfo();
                 sleep(interval);
+                start = chrono::high_resolution_clock::now();
             }
             cout<<"application usage sysomonior 100(time period in seconds) 10(time interval in seconds) lo(network interface)"<<endl;
     }

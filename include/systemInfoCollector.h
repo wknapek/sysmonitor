@@ -13,9 +13,9 @@ class systemInfoCollector
         virtual ~systemInfoCollector();
         void getSystemInfo();
     private:
-    cpuInfoCollector cpu;
-    RAMCollector     ram;
-    netStat          net;
+    cpuInfoCollector m_cpu;
+    RAMCollector     m_ram;
+    netStat          m_net;
 };
 
 #endif // SYSTEMINFOCOLLECTOR_H

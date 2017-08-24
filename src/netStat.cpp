@@ -13,7 +13,7 @@ netStat::netStat()
 
 netStat::netStat(std::string interface)
 {
-    interfaces.insert(std::map<std::string,networkInterFace>::value_type(interface,networkInterFace(0,0)));
+    m_interfaces.insert(std::map<std::string,networkInterFace>::value_type(interface,networkInterFace(0,0)));
 }
 
 netStat::~netStat()
@@ -36,13 +36,13 @@ void netStat::get_interfaces()
     getifaddrs(&ifaddr);
     for (ifa = ifaddr; ifa != NULL; ifa = ifa->ifa_next)
     {
-        interfaces.insert(std::map<std::string,networkInterFace>::value_type(ifa->ifa_name,networkInterFace(0,0)));
+        m_interfaces.insert(std::map<std::string,networkInterFace>::value_type(ifa->ifa_name,networkInterFace(0,0)));
     }
 }
 
 void netStat::printInterfaces()
 {
-    for(auto it = interfaces.begin(); it != interfaces.end(); it++)
+    for(auto it = m_interfaces.begin(); it != m_interfaces.end(); it++)
     {
 
         std::ifstream net_stat_rx;

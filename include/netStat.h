@@ -30,7 +30,7 @@ class netStat
         int64_t rx_bytes;
         int64_t tx_bytes;
     };
-    std::map<std::string,networkInterFace> interfaces;
+    std::map<std::string,networkInterFace> m_interfaces;
 };
 
 #endif // NETSTAT_H

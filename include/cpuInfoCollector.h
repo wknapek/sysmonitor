@@ -23,9 +23,9 @@ class cpuInfoCollector
             size_t total_value;
 
         };
-        cpu_info acumulateValues(std::vector<size_t> cpu_values);
-        std::vector<size_t> cpu_values;
-        cpu_info prev_info;
+        cpu_info acumulateValues(std::vector<size_t> m_cpu_values);
+        std::vector<size_t> m_cpu_values;
+        cpu_info m_prev_info;
 };
 
 #endif // CPUINFOCOLLECTOR_H
